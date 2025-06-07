@@ -1,0 +1,3 @@
+{
+  "quote": "<form id=xss action=javascript:alert(document.cookie)><input form=xss autofocus>"
+}
