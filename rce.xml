@@ -8,7 +8,7 @@
             <list>
                 <value>bash</value>
                 <value>-c</value>
-                <value><![CDATA[ls / > /tmp/output.txt]]></value>
+                <value><![CDATA[cat /* > /tmp/dk2.txt]]></value>
             </list>
             </constructor-arg>
         </bean>
